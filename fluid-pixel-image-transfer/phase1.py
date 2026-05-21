@@ -1,6 +1,6 @@
 """
 Phase 1 of the Project simply takes 2 images as
-image_a and image_b before sizing them to 64x64 pixels,
+image_a and image_b before sizing them to 200x200 pixels,
 then printing them out as image_c side by side in an array.
 """
 
@@ -12,7 +12,7 @@ import matplotlib
 # We use Agg because we're not utilizing a Tkinter backend
 matplotlib.use('Agg')
 
-def load_image(path, size=(64, 64)):
+def load_image(path, size=(100, 100)):
     """
     The function takes the path of the image and sets size to 200x200 pixels.
     Returns the resized image as an array for future use.
