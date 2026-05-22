@@ -55,6 +55,9 @@ python phase4.py
 
 Spheal's pixels rearranged into Meguru Bachira from Blue Lock:
 
+![inputs](https://github.com/user-attachments/assets/10135112-2fcf-4dc5-8232-f2b8ded8a564)
+
+
 ![example](https://github.com/user-attachments/assets/30dd3378-3293-4448-9400-c8d12cf7a63d)
 
 ## What I Learned
