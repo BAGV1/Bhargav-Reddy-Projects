@@ -12,8 +12,8 @@ import numpy as np
 from PIL import Image as PILImage
 import imageio
 
-img_a = load_image("image_b.jpg", size=(100, 100))
-img_b = load_image("image_a.jpg", size=(100, 100))
+img_a = load_image("image_a.jpg", size=(100, 100))
+img_b = load_image("image_b.jpg", size=(100, 100))
 
 # Run optimal transport, get pixel assignment map and target pixels
 col_ind, pixels_b = compute_transport(img_a, img_b)
@@ -23,14 +23,13 @@ num_frames = 30
 
 pixels_a = img_a.reshape(-1, 3).astype(np.float32)
 pixels_b = pixels_b.astype(np.float32)
-# Keep integer version of pixels_a for painting, float values
-# cause issues with color
+# Keep integer version of pixels_a for painting, float values cause issues with color
 pixels_a_int = img_a.reshape(-1, 3)
 
 # Convert flat pixel index into 2D grid coordinates (row, col) for each pixel
-start_positions = np.array([[i // size, i % size] for i in range(size * size)], dtype = np.float32)
+start_positions = np.array([[i // size, i % size] for i in range(size * size)], dtype=np.float32)
 # End positions based on transport map - where each pixel needs to travel to
-end_positions = np.array([[col_ind[i] // size, col_ind[i] % size] for i in range(size * size)], dtype = np.float32)
+end_positions = np.array([[col_ind[i] // size, col_ind[i] % size] for i in range(size * size)], dtype=np.float32)
 
 frames = []
 for frame in range(num_frames):
@@ -59,6 +58,6 @@ for _ in range(20):
 frames_array = [np.array(f) for f in frames]
 imageio.mimsave("phase3_result.gif",
                 frames_array,
-                duration = 50,
-                loop = 0)
+                duration=50,
+                loop=0)
 print("Saved to phase3_result.gif")
